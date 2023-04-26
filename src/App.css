@@ -1,6 +1,8 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.blocker-container {
   text-align: center;
+  margin: 15%;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
