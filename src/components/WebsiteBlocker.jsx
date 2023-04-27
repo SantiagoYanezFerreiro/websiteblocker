@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
 
 export default function WebsiteBlocker() {
-  const [blockWebsites, setBlockedWebsites] = useState([]);
+  const [blockedSites, setBlockedSites] = useState([]);
+  const [currentsite, setCurrentSite] = useState("");
 
-  function addBlockedWebsite(website) {
-    if (!addBlockedWebsite.includes(website)) {
-      blockWebsites.push(website);
+  function handleInput(event) {
+    setCurrentSite(event.target.value);
+  }
+
+  function addBlockedSite() {
+    if (!blockWebsite.includes(currentsite)) {
+      setBlockedSites([...blocked, currentsite]);
+      setCurrentSite("");
     }
   }
   return (
     <div className="blocker-container">
       <h1>Website Blocker</h1>
-      <button onClick={addBlockedWebsite}>Add New Website</button>
+      <button onClick={addBlockedSite}>Add New Website</button>
     </div>
   );
 }
