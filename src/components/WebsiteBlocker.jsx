@@ -21,6 +21,7 @@ export default function WebsiteBlocker() {
       if ((blockedSites, includes(currentSite))) {
         event.preventdefault();
         event.returnvalue = "";
+        console.log(currentSite);
       }
     };
 
@@ -28,6 +29,7 @@ export default function WebsiteBlocker() {
       const currentSite = window.location.hostname;
       if (blockedSites.includes(currentSite)) {
         window.location.href = "https://www.example.com/blocked";
+        console.log(currentSite);
       }
     }
 
@@ -48,11 +50,14 @@ export default function WebsiteBlocker() {
       <h1>Website Blocker</h1>
       <input type="Text" value={currentSite} onChange={handleInput} />
       <button onClick={addBlockedSite}>Add New Website</button>
-      <ul>
+      <div>
         {blockedSites.map((site) => (
-          <li key={site}>{site}</li>
+          <div>
+            <p key={site}>{site}</p> <button>Delete</button>
+            <button>Edit</button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
